@@ -1,0 +1,60 @@
+options:
+  debug:
+    type: boolean
+    default: False
+    description: "Enable debug logging."
+  verbose:
+    type: boolean
+    default: False
+    description: "Enable verbose logging."
+  proxy:
+    type: string
+    description: "A http proxy to use when downloading installers"
+  ovs-installer-url:
+    type: string
+    description: |
+      Download URL of the OVS MSI installer.
+    default: "https://cloudbase.it/downloads/openvswitch-hyperv-2.7.0-certified.msi"
+  os-data-network:
+    type: string
+    description: |
+      The IP address and netmask of the OpenStack Data network (e.g.: 192.168.0.0/24).
+      This network will be used for tenant network traffic in overlay networks.
+      NOTE: If ovs is selected as the network type, this option overrides
+      data-port. OVS on Windows requires that the os data network be set on a NIC.
+      That means that if an interface has an IP in the os-data-network
+      range, that interface will be added to the vmswitch. There is a caveat here.
+      If os-data-network is on a different interface then data-port, it might result
+      in the hyper-v compute nodes not being able to use VLAN network segregation.
+  rabbit-user:
+    type: string
+    default: neutron
+    description: Username used to access rabbitmq queue.
+  rabbit-vhost:
+    type: string
+    default: openstack
+    description: Rabbitmq vhost.
+  vmswitch-name:
+    type: string
+    description: |
+      Name of the Hyper-V virtual switch. Defaults to 'br100'.
+    default: br100
+  log-dir:
+    type: string
+    description: |
+      Log folder location. Defaults to '<system_drive_letter>:\OpenStack\Log'.
+  disable-security-groups:
+    type: boolean
+    default: false
+    description: |
+      Disable neutron based security groups - setting this configuration option
+      will override any settings configured via the neutron-api charm.
+  firewall-driver:
+    type: string
+    default: hyperv
+    description: |
+      Firewall driver to use to support use of security groups with
+      instances. Valid options are:
+        * hyperv
+        * openvswitch
+

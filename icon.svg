@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="158px" height="158px" viewBox="0 0 158 158" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40 (33762) - http://www.bohemiancoding.com/sketch -->
+    <title>Nova-HyperV</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Juju-Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Nova-HyperV">
+            <g id="Base" fill="#E7E9ED">
+                <rect id="Rectangle" x="0" y="0" width="158" height="158"></rect>
+            </g>
+            <g id="Group-4" transform="translate(33.500000, 41.295157)">
+                <polygon id="Stroke-2" points="45.7711511 22.9102519 45.7711511 28.8751811 45.7711511 51.7411457 65.7500803 40.3138005 65.7500803 11.4829067"></polygon>
+                <polygon id="Stroke-4" points="25.7923024 11.4825846 25.7923024 40.3134784 45.7712316 51.7416289 45.7680103 28.8748589 45.7680103 22.9099297"></polygon>
+                <polygon id="Stroke-6" stroke="#18A1FF" stroke-width="1.61061947" stroke-linejoin="round" fill="#18A1FF" points="45.7711511 22.9099297 25.7922218 11.4825846 45.7711511 0.0552394702 65.7500803 11.4825846"></polygon>
+                <polygon id="Stroke-9" fill="#E7E9ED" points="20.6698077 37.3258598 20.6698077 43.290789 20.6665864 66.1567536 40.6455157 54.7294085 40.6487369 25.8985147"></polygon>
+                <polygon id="Stroke-11" stroke="#263156" stroke-width="1.61061947" stroke-linejoin="round" fill="#263156" points="0.690878484 25.898112 0.690878484 54.7290058 20.6665864 66.1571563 20.6665864 43.2903864 20.6698077 37.3254572"></polygon>
+                <polygon id="Stroke-14" stroke="#18A1FF" stroke-width="1.61061947" stroke-linejoin="round" fill="#18A1FF" points="40.6487369 25.8981926 20.6698077 37.3255377 0.690878484 25.8981926 20.6698077 14.4708474"></polygon>
+                <polygon id="Stroke-17" stroke="#263156" stroke-width="1.61061947" stroke-linejoin="round" fill="#263156" points="70.8784537 37.3258598 70.8784537 43.290789 70.8752325 66.1567536 90.8541617 54.7294085 90.8573829 25.8985147"></polygon>
+                <polygon id="Stroke-22" stroke="#18A1FF" stroke-width="1.61061947" stroke-linejoin="round" fill="#18A1FF" points="90.8573829 25.8981926 70.8784537 37.3255377 50.8995245 25.8981926 70.8784537 14.4708474"></polygon>
+                <polygon id="Stroke-25" stroke="#263156" stroke-width="1.61061947" stroke-linejoin="round" fill="#263156" points="45.7711511 51.7412262 45.7711511 57.7061554 45.7679298 80.57212 65.746859 69.1447749 65.7500803 40.3138811"></polygon>
+                <polygon id="Stroke-28" stroke="#263156" stroke-width="1.61061947" stroke-linejoin="round" fill="#263156" points="25.7923024 40.3135589 25.7890811 69.1444527 45.7680103 80.5726032 45.7712316 57.7058333 45.7712316 51.7409041"></polygon>
+                <polygon id="Stroke-31" stroke="#18A1FF" stroke-width="1.61061947" stroke-linejoin="round" fill="#18A1FF" points="65.7500803 40.3135589 45.7711511 51.7409041 25.7922218 40.3135589 45.7711511 28.8862138"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>
