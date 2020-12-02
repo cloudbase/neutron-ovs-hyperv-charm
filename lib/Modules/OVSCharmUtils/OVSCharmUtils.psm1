@@ -314,6 +314,7 @@ function Get-OVSInstallerPath {
         if($proxy) {
             $params["Proxy"] = $proxy
         }
+        Write-JujuWarning ("Downloading OVS installer from {0}" -f $installerUrl)
         Invoke-FastWebRequest @params | Out-Null
     } -RetryMessage "OVS installer download failed. Retrying"
     return $tempDownloadFile
@@ -350,15 +351,16 @@ function Disable-OVS {
 }
 
 function Install-OVS {
-    if (Get-ComponentIsInstalled -Name $OVS_PRODUCT_NAME -Exact) {
+    if (Get-ComponentIsInstalled -Name ("{0}%" -f $OVS_PRODUCT_NAME) -Exact:$false) {
         Write-JujuWarning "OVS is already installed"
         return
     }
     $installerPath = Get-OVSInstallerPath
     Write-JujuWarning "Installing OVS from '$installerPath'"
     $logFile = Join-Path $env:APPDATA "ovs-installer-log.txt"
-    $extraParams = @("INSTALLDIR=`"$OVS_INSTALL_DIR`"")
+    $extraParams = @(('INSTALLDIR="{0}"' -f $OVS_INSTALL_DIR))
     Install-Msi -Installer $installerPath -LogFilePath $logFile -ExtraArgs $extraParams
+    Write-JujuWarning "Done running Install-Msi"
 }
 
 function Uninstall-OVS {

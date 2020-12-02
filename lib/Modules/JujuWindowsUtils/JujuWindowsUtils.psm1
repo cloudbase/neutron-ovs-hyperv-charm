@@ -290,7 +290,8 @@ function Install-Msi {
         $args = @(
             "/i",
             $Installer,
-            "/q"
+            "/qn",
+            "/quiet"
             )
 
         if($LogFilePath){
@@ -308,10 +309,12 @@ function Install-Msi {
         if (!(Test-Path $Installer)){
             Throw "Could not find MSI installer at $Installer"
         }
+        Write-JujuWarning ("Running msiexec with args: {0}" -f ($args -join " " ))
         $p = Start-Process -FilePath "msiexec" -Wait -PassThru -ArgumentList $args
         if ($p.ExitCode -ne 0) {
-            Throw "Failed to install MSI package."
+            Throw ("Failed to install MSI package {0}" -f $p.ExitCode)
         }
+        Write-JujuWarning "Done installing MSI"
     }
 }
 
