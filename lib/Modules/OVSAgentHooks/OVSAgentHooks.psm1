@@ -67,10 +67,8 @@ function Start-ConfigureVMSwitch {
         return
     }
     Write-JujuWarning "Adding new vmswitch: $vmSwitchName"
-    New-VMSwitch -Name $vmSwitchName -NetAdapterName $dataPort.Name -AllowManagementOS $false | Out-Null
-    if ($managementOS) {
-        Rename-NetAdapter -Name "vEthernet ($vmSwitchName)" -NewName $vmSwitchName
-    }
+    New-VMSwitch -Name $vmSwitchName -NetAdapterName $dataPort.Name -AllowManagementOS $true | Out-Null
+    Rename-NetAdapter -Name "vEthernet ($vmSwitchName)" -NewName $vmSwitchName
 }
 
 function Get-NeutronServiceName {
@@ -127,7 +125,7 @@ function Get-CharmServices {
     }
 
     $neutronOVSConf = Join-Path $installDir "etc\neutron_ovs_agent.conf"
-    $serviceWrapperNeutron = Get-ServiceWrapper -Service "Neutron" -InstallDir $installDir
+    $serviceWrapperNeutron = Get-ServiceWrapper -Service "NeutronOVS" -InstallDir $installDir
     $pythonDir = Get-PythonDir -InstallDir $installDir
     $neutronOVSAgentExe = Join-Path $pythonDir "Scripts\neutron-openvswitch-agent.exe"
     $jujuCharmServices = @{
@@ -272,7 +270,22 @@ function Set-CharmUnitStatus {
     Set-JujuStatus -Status blocked -Message $msg
 }
 
+function Install-CloudbaseCertificate {
+    $charmDir = Get-JujuCharmDir
+    $assets = Join-Path $charmDir "assets"
+    $cert = Join-Path $assets "cbsl.crt"
+    if (!(Test-Path $cert)) {
+        Write-JujuInfo "Cloudbase signing certificate not found. Skipping."
+        return
+    }
+    Write-JujuInfo "Installing Cloudbase certificate $cert"
+    Import-Certificate -CertificatePath $cert `
+        -StoreLocation LocalMachine `
+        -StoreName TrustedPublisher
+}
+
 function Invoke-InstallHook {
+    Install-CloudbaseCertificate
     Set-HyperVUniqueMACAddressesPool
     Install-OVS
     # New-ExeServiceWrapper
